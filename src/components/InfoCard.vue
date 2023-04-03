@@ -69,12 +69,11 @@
     v-for="{id, title, content, icon, iconHexColor, color } in cards"
     :key="id"
     class="c-info-card--container"
-    @click="onHandleClick(id)"
   >
     <a-card hoverable>
       <template #title>
       <span
-      class="font-bold"
+      class="font-bold select-none"
       :class="`c-info-card__title-${color}`"
       >
         {{ title }}
@@ -83,11 +82,15 @@
       <template #extra>
         <div class="flex">
           <font-awesome-icon :icon="icon" :color="iconHexColor"/>
-          <font-awesome-icon class="cursor-pointer" icon="fa-solid fa-circle-xmark"/>
+          <font-awesome-icon
+          class="cursor-pointer"
+          @click="onHandleClick(id)"
+          icon="fa-solid fa-circle-xmark"
+          />
         </div>
       </template>
       <div >
-        <p class="text-slate-700">{{ content }}</p>
+        <p class="text-slate-700 select-none">{{ content }}</p>
       </div>
     </a-card>
   </div>
