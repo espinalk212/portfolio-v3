@@ -10,6 +10,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import {
   faHatWizard,
   faBasketball,
+  faCar,
   faGlasses,
   faBriefcase,
   faHome,
@@ -22,7 +23,8 @@ import {
   faCircleCheck,
   faCircleInfo,
   faCircleExclamation,
-  faTriangleExclamation
+  faTriangleExclamation,
+  faX
 } from '@fortawesome/free-solid-svg-icons'
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
@@ -31,6 +33,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 library.add(
   faHatWizard,
   faBasketball,
+  faCar,
   faGlasses,
   faBriefcase,
   faHome,
@@ -43,7 +46,8 @@ library.add(
   faCircleCheck,
   faCircleInfo,
   faCircleExclamation,
-  faTriangleExclamation
+  faTriangleExclamation,
+  faX
 )
 
 import "@fontsource/roboto"

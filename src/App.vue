@@ -1,11 +1,13 @@
 <script setup>
 import { RouterView } from 'vue-router'
+import ConfettiExplosion from 'vue-confetti-explosion'
 import NavBarItem  from '@/components/NavBarItem.vue';
 import { onBeforeMount, ref, watch } from 'vue'
 import Alert from '@/components/elements/Alert.vue'
 import {useAlertStore } from '@/stores/AlertStore.js'
 
 const screenWidth = ref(640)
+const screenHeight = ref(0)
 const systemSetTheme = ref(false)
 const alertStore = useAlertStore()
 
@@ -34,6 +36,7 @@ const onScreenResize = function () {
 
 const updateScreenWidth = function () {
   screenWidth.value = window.innerWidth
+  screenHeight.value = window.innerHeight
 }
 
 </script>
@@ -43,5 +46,8 @@ const updateScreenWidth = function () {
   <header>
     <NavBarItem @click="onDarkModeToggled" :systemSetTheme="systemSetTheme" :screenWidth="screenWidth" />
   </header>
+  <div class="flex w-2/3 h-full ml-auto">
+    <ConfettiExplosion v-if="alertStore.isConfettiVisible" :stageWidth="screenWidth" :stageHeight="screenHeight"/>
+  </div>
   <RouterView  />
 </template>

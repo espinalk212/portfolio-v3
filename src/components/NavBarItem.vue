@@ -69,11 +69,11 @@ const emit = defineEmits(['click'])
             class="flex items-center justify-center md:text-2xl lg:text-3xl"
             :class="pageIsNotReady(title) ? 'cursor-not-allowed' : ''"
           >
-            <font-awesome-icon :icon="icon" :color="darkMode ? 'white' : '#0e7490'" />
+            <font-awesome-icon :icon="icon" :color="darkMode ? '#e5e7eb' : '#0e7490'" />
           </div>
           <p  :class="isActive && darkMode ? 'activeDark' : isActive && !darkMode ? 'activeLight' : '',
           pageIsNotReady(title) ? 'cursor-not-allowed' : ''"
-          class="font-bold text-sm text-cyan-700 dark:text-white md:text-2xl lg:text-3xl"
+          class="font-bold text-sm text-cyan-700 dark:text-gray-200 md:text-2xl lg:text-3xl"
           >
           {{ title }}
         </p>
@@ -93,7 +93,7 @@ const emit = defineEmits(['click'])
           </template>
         </a-switch>
       </div>
-      <p class="font-bold text-sm text-cyan-700 dark:text-white md:text-2xl lg:text-3xl">{{ darkMode ? 'Dark' : 'Light' }}</p>
+      <p class="font-bold text-sm text-cyan-700 dark:text-gray-200 md:text-2xl lg:text-3xl">{{ darkMode ? 'Dark' : 'Light' }}</p>
     </div>
   </div>
 </template>

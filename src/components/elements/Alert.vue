@@ -29,7 +29,7 @@ onMounted(() => {
 const emit = defineEmits(['closed'])
 </script>
 <template>
-  <div class="c-element-alert flex w-10/12 h-1/4">
+  <div class="c-element-alert flex w-7/12 h-2/7">
     <a-alert
     banner
     show-icon

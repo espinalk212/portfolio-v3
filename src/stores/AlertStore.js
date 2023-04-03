@@ -1,4 +1,3 @@
-import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 
 export const useAlertStore = defineStore('alert', {
@@ -7,6 +6,7 @@ export const useAlertStore = defineStore('alert', {
     message: '',
     description: '',
     type: '',
+    isConfettiVisible: false,
   }),
   getters: {},
   actions: {
@@ -16,5 +16,8 @@ export const useAlertStore = defineStore('alert', {
       this.description = description,
       this.type = type
     },
+    setConfettiVisible() {
+      this.isConfettiVisible = true
+    }
   }
 })
