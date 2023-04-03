@@ -1,10 +1,13 @@
 <script setup>
 import { RouterView } from 'vue-router'
 import NavBarItem  from '@/components/NavBarItem.vue';
-import { onBeforeMount, ref } from 'vue'
+import { onBeforeMount, ref, watch } from 'vue'
+import Alert from '@/components/elements/Alert.vue'
+import {useAlertStore } from '@/stores/AlertStore.js'
 
 const screenWidth = ref(640)
 const systemSetTheme = ref(false)
+const alertStore = useAlertStore()
 
 onBeforeMount(() => {
   updateScreenWidth();
@@ -32,9 +35,11 @@ const onScreenResize = function () {
 const updateScreenWidth = function () {
   screenWidth.value = window.innerWidth
 }
+
 </script>
 
 <template >
+  <Alert v-if="alertStore.alertVisible" @closed="() => alertStore.alertVisible = false" :message="alertStore.message" :type="alertStore.type" :description="alertStore.description"/>
   <header>
     <NavBarItem @click="onDarkModeToggled" :systemSetTheme="systemSetTheme" :screenWidth="screenWidth" />
   </header>

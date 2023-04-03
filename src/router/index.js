@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-
+import { useAlertStore } from '@/stores/AlertStore.js'
+let alertStore
 const routes = [
   {
     path: '/',
@@ -20,12 +21,30 @@ const routes = [
   {
     path: '/resume',
     name: 'resume',
-    component: () => import('../views/ResumeView.vue')
+    component: () => import('../views/ResumeView.vue'),
+    beforeEnter: (to, from) => {
+      alertStore = useAlertStore()
+      alertStore.setAlertVisible({
+        message: 'Sorry this functionality isn\'t available yet',
+        type: 'error',
+        description: 'It\'s coming soon',
+    })
+      return false
+    }
   },
   {
     path: '/blog',
     name: 'blog',
-    component: () => import('../views/BlogView.vue')
+    component: () => import('../views/BlogView.vue'),
+    beforeEnter: (to, from) => {
+      alertStore = useAlertStore()
+      alertStore.setAlertVisible({
+        message: 'Sorry this functionality isn\'t available yet',
+        type: 'error',
+        description: 'It\'s coming soon',
+    })
+      return false
+    }
   },
 
 ]

@@ -7,12 +7,44 @@ import './index.css'
 import Antd from 'ant-design-vue'
 import { library } from '@fortawesome/fontawesome-svg-core'
 
-import { faHatWizard, faBasketball, faGlasses, faBriefcase, faHome, faUser, faLaptop, faFile, faFilePen, faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
+import {
+  faHatWizard,
+  faBasketball,
+  faGlasses,
+  faBriefcase,
+  faHome,
+  faUser,
+  faLaptop,
+  faFile,
+  faFilePen,
+  faMoon,
+  faSun,
+  faCircleCheck,
+  faCircleInfo,
+  faCircleExclamation,
+  faTriangleExclamation
+} from '@fortawesome/free-solid-svg-icons'
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 //Add all icons to the library so you can use it in your page
-library.add(faHatWizard, faBasketball, faGlasses, faBriefcase, faHome, faUser, faLaptop, faFile, faFilePen, faMoon, faSun )
+library.add(
+  faHatWizard,
+  faBasketball,
+  faGlasses,
+  faBriefcase,
+  faHome,
+  faUser,
+  faLaptop,
+  faFile,
+  faFilePen,
+  faMoon,
+  faSun,
+  faCircleCheck,
+  faCircleInfo,
+  faCircleExclamation,
+  faTriangleExclamation
+)
 
 import "@fontsource/roboto"
 import './assets/main.css'

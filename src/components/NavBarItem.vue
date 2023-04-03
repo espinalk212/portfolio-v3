@@ -1,6 +1,6 @@
 <script setup>
 import { RouterLink } from 'vue-router'
-import { ref, onBeforeMount } from 'vue'
+import { computed, ref, onBeforeMount } from 'vue'
 const props = defineProps({
   screenWidth: Number,
   systemSetTheme: Boolean,
@@ -48,25 +48,34 @@ const onDarkModeToggled = function () {
   emit('click', darkMode.value)
 }
 
+const pageIsNotReady = function (title) {
+  if (title === 'Blog' || title === 'Resume') return true
+  return false
+}
+
 const emit = defineEmits(['click'])
 </script>
 <template>
   <div class="flex justify-between cursor-pointer md:px-20 lg:px-30">
     <div
-      v-for="section in navBarSections"
-      :key="section.title"
+      v-for="{title, icon, path} in navBarSections"
+      :key="title"
       >
       <RouterLink
-        :to="section.path"
+        :to="path"
         v-slot="{ isActive }"
         >
-          <div class="flex items-center justify-center md:text-2xl lg:text-3xl">
-            <font-awesome-icon :icon="section.icon" :color="darkMode ? 'white' : '#0e7490'" />
+          <div
+            class="flex items-center justify-center md:text-2xl lg:text-3xl"
+            :class="pageIsNotReady(title) ? 'cursor-not-allowed' : ''"
+          >
+            <font-awesome-icon :icon="icon" :color="darkMode ? 'white' : '#0e7490'" />
           </div>
-          <p  :class="isActive && darkMode ? 'activeDark' : isActive && !darkMode ? 'activeLight' : ''"
+          <p  :class="isActive && darkMode ? 'activeDark' : isActive && !darkMode ? 'activeLight' : '',
+          pageIsNotReady(title) ? 'cursor-not-allowed' : ''"
           class="font-bold text-sm text-cyan-700 dark:text-white md:text-2xl lg:text-3xl"
           >
-          {{ section.title }}
+          {{ title }}
         </p>
       </RouterLink>
     </div>
