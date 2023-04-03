@@ -1,8 +1,8 @@
 <script setup>
-import {ref } from 'vue'
-import { useAlertStore } from '../stores/AlertStore';
-const alertStore = useAlertStore()
-  let cards = ref([
+  import { ref } from 'vue'
+  import { useAlertStore } from '../stores/AlertStore';
+  const alertStore = useAlertStore()
+  const cards = ref([
     {
       id: 1,
       title:'My Hobbies',
@@ -48,11 +48,24 @@ const alertStore = useAlertStore()
     const activeCards = cards.value.filter((card) => card.id !== id)
     cards.value = activeCards
     if(!cards.value.length) alertStore.setConfettiVisible()
+    setTimeout(() => alertStore.isConfettiVisible = false, "4000")
   }
 
+  const handleforceRerender = () => {
+    emit('restore')
+  }
+  const emit = defineEmits(['restore'])
 </script>
 <template>
+  <button
+    v-if="cards.length !== 4"
+    @click="handleforceRerender"
+    class="shadow-lg shadow-cyan-500/50 ml-4 bg-gradient-to-r from-cyan-700 to-teal-500 mb-2 text-white font-semibold dark:bg-gradient-to-r dark:from-gray-200 dark:to-slate-500 dark:text-black rounded-lg p-2"
+    >
+    Restore Cards
+  </button>
   <div
+    v-if="cards.length"
     v-for="{id, title, content, icon, iconHexColor, color } in cards"
     :key="id"
     class="c-info-card--container"
@@ -70,7 +83,7 @@ const alertStore = useAlertStore()
       <template #extra>
         <div class="flex">
           <font-awesome-icon :icon="icon" :color="iconHexColor"/>
-          <font-awesome-icon icon="fa-solid fa-x"/>
+          <font-awesome-icon class="cursor-pointer" icon="fa-solid fa-circle-xmark"/>
         </div>
       </template>
       <div >
@@ -78,19 +91,33 @@ const alertStore = useAlertStore()
       </div>
     </a-card>
   </div>
+  <div
+   v-else="!cards.length"
+   class="c-info-card--container mt-20"
+  >
+  <a-card>
+    <p
+    class="text-lg font-bold text-center dark:text-black"
+    >
+    Don't worry, you can restore the cards by pressing the button above 👆🏽
+    </p>
+  </a-card>
+
+  </div>
+
 </template>
 <style lang="pcss"  >
 .c-info-card--container {
   .ant-card {
     @apply mb-2.5 rounded-lg border-cyan-700 border-2 border-solid dark:bg-gray-200;
   }
-  .ant-card-head {
+  /* .ant-card-head {
     @apply flex justify-center;
-  }
-  .ant-card-extra {
+  } */
+  /* .ant-card-extra {
     margin-left: 20px;
     font-size: 16px;
-  }
+  } */
   .c-info-card__title-orange { @apply text-orange-700 }
   .c-info-card__title-red { @apply text-red-700 }
   .c-info-card__title-stone { @apply text-stone-700 }

@@ -20,7 +20,7 @@ const closeAlert = function () {
   setTimeout(() => {
     visible.value = false
     emit('closed')
-  }, "5000")
+  }, "3500")
 }
 onMounted(() => {
   closeAlert()
@@ -29,7 +29,7 @@ onMounted(() => {
 const emit = defineEmits(['closed'])
 </script>
 <template>
-  <div class="c-element-alert flex w-7/12 h-2/7">
+  <div class="c-element-alert flex w-7/12 h-2/7 mt-10">
     <a-alert
     banner
     show-icon
@@ -76,10 +76,22 @@ const emit = defineEmits(['closed'])
 
 
   }
-  .ant-alert-success { background-color: #bbf7d0 !important;}
-  .ant-alert-warning { background-color: #fde68a !important;}
-  .ant-alert-info { background-color: #bfdbfe !important;}
-  .ant-alert-error { background-color: #fecaca !important;}
+  .ant-alert-success {
+    background-color: #bbf7d0 !important;
+    @apply shadow-md shadow-green-500/50
+  }
+  .ant-alert-warning {
+    background-color: #fde68a !important;
+    @apply shadow-md shadow-yellow-500/50
+  }
+  .ant-alert-info {
+    background-color: #bfdbfe !important;
+    @apply shadow-md shadow-blue-500/50
+  }
+  .ant-alert-error {
+    background-color: #fecaca !important;
+    @apply shadow-md shadow-red-500/50
+  }
 
 }
 </style>

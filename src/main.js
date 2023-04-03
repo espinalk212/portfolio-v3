@@ -24,7 +24,7 @@ import {
   faCircleInfo,
   faCircleExclamation,
   faTriangleExclamation,
-  faX
+  faCircleXmark,
 } from '@fortawesome/free-solid-svg-icons'
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
@@ -47,7 +47,7 @@ library.add(
   faCircleInfo,
   faCircleExclamation,
   faTriangleExclamation,
-  faX
+  faCircleXmark,
 )
 
 import "@fontsource/roboto"

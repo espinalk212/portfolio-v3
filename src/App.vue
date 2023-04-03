@@ -2,7 +2,7 @@
 import { RouterView } from 'vue-router'
 import ConfettiExplosion from 'vue-confetti-explosion'
 import NavBarItem  from '@/components/NavBarItem.vue';
-import { onBeforeMount, ref, watch } from 'vue'
+import { onBeforeMount, ref } from 'vue'
 import Alert from '@/components/elements/Alert.vue'
 import {useAlertStore } from '@/stores/AlertStore.js'
 

@@ -99,11 +99,11 @@ const emit = defineEmits(['click'])
 </template>
 <style lang="pcss" >
 .activeDark {
-  border-bottom: 4px solid #5eead4;
+  border-bottom: 4px solid #14b8a6;
   border-radius: 2px;
 }
 .activeLight {
-  border-bottom: 4px solid #5eead4;
+  border-bottom: 4px solid #14b8a6;
   border-radius: 2px;
 }
 button.ant-switch {
