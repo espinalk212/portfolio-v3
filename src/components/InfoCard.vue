@@ -56,6 +56,7 @@ import { useAlertStore } from '../stores/AlertStore';
         message: 'Look at the blog icon ⤴️',
         description: 'In the future when I publish blogs, badges like such will tell you there\'s a new one to read 😁'
       }), "2000")
+      setTimeout(() => alertStore.clearBlogNotifications(), "7000")
     }
   }
 

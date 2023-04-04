@@ -23,6 +23,9 @@ export const useAlertStore = defineStore('Alert', {
     },
     setConfettiVisible() {
       this.isConfettiVisible = true
+    },
+    clearBlogNotifications() {
+      this.blogUpdates = []
     }
   }
 })
