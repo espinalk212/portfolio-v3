@@ -9,9 +9,9 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/about',
-    name: 'about',
-    component: () => import('../views/AboutView.vue'),
+    path: '/technologies',
+    name: 'tech',
+    component: () => import('../views/TechView.vue'),
     beforeEnter: (to, from) => {
       alertStore = useAlertStore()
       alertStore.triggerNotification({

@@ -10,6 +10,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import {
   faHatWizard,
   faBasketball,
+  faBlog,
   faCar,
   faGlasses,
   faBriefcase,
@@ -20,6 +21,7 @@ import {
   faFilePen,
   faMoon,
   faSun,
+  faSchool,
   faCircleCheck,
   faCircleInfo,
   faCircleExclamation,
@@ -27,12 +29,14 @@ import {
   faCircleXmark,
 } from '@fortawesome/free-solid-svg-icons'
 
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+import { FontAwesomeIcon, FontAwesomeLayers, FontAwesomeLayersText } from '@fortawesome/vue-fontawesome'
 
 //Add all icons to the library so you can use it in your page
 library.add(
   faHatWizard,
   faBasketball,
+  faBlog,
   faCar,
   faGlasses,
   faBriefcase,
@@ -43,6 +47,7 @@ library.add(
   faFilePen,
   faMoon,
   faSun,
+  faSchool,
   faCircleCheck,
   faCircleInfo,
   faCircleExclamation,
@@ -58,6 +63,8 @@ const app = createApp(App)
 app.use(createPinia())
 app.use(router)
 app.use(Antd)
-app.component("font-awesome-icon", FontAwesomeIcon)
+app.component('font-awesome-icon', FontAwesomeIcon)
+app.component('font-awesome-layers', FontAwesomeLayers)
+app.component('font-awesome-layers-text', FontAwesomeLayersText)
 
 app.mount('#app')

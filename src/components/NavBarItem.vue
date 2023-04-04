@@ -1,10 +1,15 @@
 <script setup>
 import { RouterLink } from 'vue-router'
 import { computed, ref, onBeforeMount } from 'vue'
+import { useAlertStore } from '../stores/AlertStore';
 const props = defineProps({
   screenWidth: Number,
   systemSetTheme: Boolean,
 })
+
+const alertStore = useAlertStore()
+
+const notificationCount = computed(() => alertStore.notifications.length)
 
 let darkMode
 
@@ -23,14 +28,14 @@ const navBarSections = [
     path: '/',
   },
   {
-    title: 'About Me',
-    icon: 'fa-solid fa-user',
-    path: '/about',
-  },
-  {
     title: 'Projects',
     icon: 'fa-solid fa-laptop',
     path: '/projects',
+  },
+  {
+    title: 'Tech',
+    icon: 'fa-solid fa-school',
+    path: '/technologies',
   },
   {
     title: 'Resume',
@@ -39,7 +44,7 @@ const navBarSections = [
   },
   {
     title: 'Blog',
-    icon: 'fa-solid fa-file-pen',
+    icon: 'fa-solid fa-blog',
     path: '/blog',
   },
 ]
@@ -49,7 +54,7 @@ const onDarkModeToggled = function () {
 }
 
 const pageIsNotReady = function (title) {
-  const prohibitedPages = ['About Me', 'Projects', 'Resume', 'Blog']
+  const prohibitedPages = ['Projects', 'Tech', 'Resume', 'Blog']
   if (prohibitedPages.includes(title)) return true
   return false
 }
@@ -70,7 +75,15 @@ const emit = defineEmits(['click'])
             class="flex items-center justify-center md:text-2xl lg:text-3xl"
             :class="pageIsNotReady(title) ? 'cursor-not-allowed' : ''"
           >
+          <font-awesome-layers full-width >
             <font-awesome-icon :icon="icon" :color="darkMode ? '#e5e7eb' : '#0e7490'" />
+            <font-awesome-layers-text
+              v-if="title === 'Blog' && notificationCount > 0"
+              counter
+              :value="notificationCount"
+              position="top-left"
+            />
+          </font-awesome-layers>
           </div>
           <p  :class="isActive && darkMode ? 'activeDark' : isActive && !darkMode ? 'activeLight' : '',
           pageIsNotReady(title) ? 'cursor-not-allowed' : ''"
