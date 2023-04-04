@@ -1,28 +1,31 @@
 <script setup>
 import InfoCard from '../components/InfoCard.vue';
-import { useAlertStore } from '../stores/AlertStore';
 import { ref, onMounted } from 'vue';
+import {useAlertStore } from '@/stores/AlertStore.js'
 
+const alertStore = useAlertStore()
 const componentKey = ref(0)
 const handleRestore = () => {
   componentKey.value += 1;
 }
-const alertStore = useAlertStore()
 const handleAlert = function () {
-  alertStore.setAlertVisible({
-    message: 'This is the message',
+  const randomNumber = Math.floor(Math.random() * 4)
+  const randomType = ['error', 'success', 'warning', 'info'][randomNumber]
+  alertStore.triggerNotification({
+    message: `This is a ${randomType} message`,
     description: 'This is the description',
-    type: 'success'
+    type: randomType
   })
 }
 
 onMounted(() => {
-  alertStore.setAlertVisible({
-    message: 'Are you up for a surprise?',
+  alertStore.triggerNotification({
+    message: 'Welcome! want to see something cool?',
     description: 'Try dismissing all the cards when you are done reading them',
     type: 'info'
   })
 })
+
 </script>
 
 <template>
@@ -38,7 +41,7 @@ onMounted(() => {
       @click="handleAlert"
       class="shadow-lg shadow-cyan-500/50 bg-gradient-to-r from-cyan-700 to-teal-500 mb-2 text-white font-semibold dark:bg-gradient-to-r dark:from-gray-200 dark:to-slate-500 dark:text-black rounded-lg p-2"
       >
-      Trigger Alert
+      Trigger Random Alert
     </button>
     <InfoCard @restore="handleRestore" :key="componentKey" />
   </main>

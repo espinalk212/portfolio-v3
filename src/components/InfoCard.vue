@@ -1,6 +1,6 @@
 <script setup>
-  import { ref } from 'vue'
-  import { useAlertStore } from '../stores/AlertStore';
+import { ref } from 'vue'
+import { useAlertStore } from '../stores/AlertStore';
   const alertStore = useAlertStore()
   const cards = ref([
     {
@@ -54,6 +54,7 @@
   const handleforceRerender = () => {
     emit('restore')
   }
+
   const emit = defineEmits(['restore'])
 </script>
 <template>
@@ -81,11 +82,12 @@
       </template>
       <template #extra>
         <div class="flex">
-          <font-awesome-icon :icon="icon" :color="iconHexColor"/>
+          <font-awesome-icon :icon="icon" :color="iconHexColor" size="lg"/>
           <font-awesome-icon
-          class="cursor-pointer"
+          class="cursor-pointer ml-auto"
           @click="onHandleClick(id)"
           icon="fa-solid fa-circle-xmark"
+          size="lg"
           />
         </div>
       </template>
@@ -102,7 +104,7 @@
     <p
     class="text-lg font-bold text-center dark:text-black"
     >
-    Don't worry, you can restore the cards by pressing the button above 👆🏽
+    Don't worry, you can restore the cards by either refreshing or pressing the button above 👆🏽
     </p>
   </a-card>
 
@@ -114,13 +116,21 @@
   .ant-card {
     @apply mb-2.5 rounded-lg border-cyan-700 border-2 border-solid dark:bg-gray-200;
   }
-  /* .ant-card-head {
-    @apply flex justify-center;
-  } */
-  /* .ant-card-extra {
-    margin-left: 20px;
-    font-size: 16px;
-  } */
+  .ant-card-head {
+    @apply w-full;
+  }
+  .ant-head-wrapper {
+    @apply flex w-full;
+  }
+  .ant-card-head-title {
+    @apply flex justify-end text-center w-1/2;
+  }
+  .ant-card-extra {
+    float: none;
+    margin-left: none;
+    padding-left: 10px;
+    @apply  w-1/2;
+  }
   .c-info-card__title-orange { @apply text-orange-700 }
   .c-info-card__title-red { @apply text-red-700 }
   .c-info-card__title-stone { @apply text-stone-700 }

@@ -10,6 +10,8 @@ This is the 3rd iteration of my portfolio and it is also made using Vue3 hence t
 - Fontawesome Icons
 - Vue Router
 - Pinia
+- UUID
+- Vue-Confetti-Explosion
 
 
 ### Features

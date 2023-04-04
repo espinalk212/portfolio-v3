@@ -3,7 +3,6 @@ import { RouterView } from 'vue-router'
 import ConfettiExplosion from 'vue-confetti-explosion'
 import NavBarItem  from '@/components/NavBarItem.vue';
 import { onBeforeMount, ref } from 'vue'
-import Alert from '@/components/elements/Alert.vue'
 import {useAlertStore } from '@/stores/AlertStore.js'
 
 const screenWidth = ref(640)
@@ -38,11 +37,9 @@ const updateScreenWidth = function () {
   screenWidth.value = window.innerWidth
   screenHeight.value = window.innerHeight
 }
-
 </script>
 
 <template >
-  <Alert v-if="alertStore.alertVisible" @closed="() => alertStore.alertVisible = false" :message="alertStore.message" :type="alertStore.type" :description="alertStore.description"/>
   <header>
     <NavBarItem @click="onDarkModeToggled" :systemSetTheme="systemSetTheme" :screenWidth="screenWidth" />
   </header>
@@ -51,3 +48,39 @@ const updateScreenWidth = function () {
   </div>
   <RouterView  />
 </template>
+<style lang="pcss">
+.ant-notification {
+
+  .c-notification-info {
+    background-color: #bfdbfe !important;
+    @apply shadow-md shadow-blue-500/50;
+    @apply rounded-lg border-2 cursor-pointer;
+  }
+
+  .c-notification-warning {
+    background-color: #fde68a !important;
+    @apply shadow-md shadow-yellow-500/50;
+    @apply rounded-lg border-2;
+  }
+  .c-notification-success {
+    background-color: #bbf7d0 !important;
+    @apply shadow-md shadow-green-500/50;
+    @apply rounded-lg border-2;
+  }
+  .c-notification-error {
+    background-color: #fecaca !important;
+    @apply shadow-md shadow-red-500/50;
+    @apply rounded-lg border-2;
+  }
+  .ant-notification-notice-message {
+    @apply font-bold select-none;
+  }
+  .ant-notification-notice-icon {
+    @apply mt-3;
+  }
+  .ant-notification-notice-description {
+    @apply font-semibold select-none;
+  }
+
+}
+</style>

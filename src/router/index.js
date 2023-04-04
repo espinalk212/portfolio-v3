@@ -24,7 +24,7 @@ const routes = [
     component: () => import('../views/ResumeView.vue'),
     beforeEnter: (to, from) => {
       alertStore = useAlertStore()
-      alertStore.setAlertVisible({
+      alertStore.triggerNotification({
         message: 'Sorry this functionality isn\'t available yet',
         type: 'error',
         description: 'It\'s coming soon',
@@ -38,7 +38,7 @@ const routes = [
     component: () => import('../views/BlogView.vue'),
     beforeEnter: (to, from) => {
       alertStore = useAlertStore()
-      alertStore.setAlertVisible({
+      alertStore.triggerNotification({
         message: 'Sorry this functionality isn\'t available yet',
         type: 'error',
         description: 'It\'s coming soon',
