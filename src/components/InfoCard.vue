@@ -100,13 +100,19 @@ import { useAlertStore } from '../stores/AlertStore';
    v-else="!cards.length"
    class="c-info-card--container mt-20"
   >
+  <a-empty :description="null"/>
   <a-card hoverable>
     <p
-    class="text-lg font-bold text-center dark:text-black"
+      class="text-lg font-bold text-center dark:text-black"
     >
-    Don't worry, you can restore the cards by either refreshing or pressing the button above 👆🏽
+      Don't worry, you can restore the cards by either refreshing or pressing the
+      <span class=" shadow-cyan-500/50 bg-gradient-to-r from-cyan-700 to-teal-500 text-white font-semibold dark:bg-gradient-to-r dark:from-gray-200 dark:to-slate-500 dark:border dark:border-black dark:text-black rounded-lg p-2">
+        Restore Cards
+      </span>
+      button above 👆🏽
     </p>
   </a-card>
+
 
   </div>
 
