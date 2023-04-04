@@ -17,7 +17,7 @@ const routes = [
       alertStore.triggerNotification({
         message: 'Sorry this functionality isn\'t available yet',
         type: 'error',
-        description: 'It\'s coming soon',
+        description: 'Stay tuned, it\'s coming soon',
     })
       return false
     }
@@ -31,7 +31,7 @@ const routes = [
       alertStore.triggerNotification({
         message: 'Sorry this functionality isn\'t available yet',
         type: 'error',
-        description: 'It\'s coming soon',
+        description: 'Stay tuned, it\'s coming soon',
     })
       return false
     }
@@ -45,7 +45,7 @@ const routes = [
       alertStore.triggerNotification({
         message: 'Sorry this functionality isn\'t available yet',
         type: 'error',
-        description: 'It\'s coming soon',
+        description: 'Stay tuned, it\'s coming soon',
     })
       return false
     }
