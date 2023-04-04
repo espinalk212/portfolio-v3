@@ -29,9 +29,9 @@ const routes = [
     beforeEnter: (to, from) => {
       alertStore = useAlertStore()
       alertStore.triggerNotification({
-        message: 'Sorry this functionality isn\'t available yet',
-        type: 'error',
-        description: 'Stay tuned, it\'s coming soon',
+        message: 'Sorry this functionality isn\'t fully available yet',
+        type: 'warning',
+        description: 'I\'m actively working on it 👨🏽‍💻',
     })
       return false
     }
