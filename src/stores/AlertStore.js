@@ -28,7 +28,7 @@ export const useAlertStore = defineStore('Alert', {
 
 notification.config({
   maxCount: 4,
-  duration: 5,
+  duration: null,
   placement: 'topLeft',
   top: '70px',
 })

@@ -52,25 +52,21 @@ const updateScreenWidth = function () {
 .ant-notification {
 
   .c-notification-info {
-    background-color: #bfdbfe !important;
-    @apply shadow-md shadow-blue-500/50;
-    @apply rounded-lg border-2 cursor-pointer;
+    @apply shadow-md shadow-blue-500/50 bg-blue-200;
+    @apply rounded-lg border-blue-700 border-2 cursor-pointer;
   }
 
   .c-notification-warning {
-    background-color: #fde68a !important;
-    @apply shadow-md shadow-yellow-500/50;
-    @apply rounded-lg border-2;
+    @apply shadow-md shadow-yellow-500/50 bg-yellow-200;
+    @apply rounded-lg border-yellow-700 border-2;
   }
   .c-notification-success {
-    background-color: #bbf7d0 !important;
-    @apply shadow-md shadow-green-500/50;
-    @apply rounded-lg border-2;
+    @apply shadow-md shadow-green-500/50 bg-green-200;
+    @apply rounded-lg border-green-700 border-2;
   }
   .c-notification-error {
-    background-color: #fecaca !important;
-    @apply shadow-md shadow-red-500/50;
-    @apply rounded-lg border-2;
+    @apply shadow-md shadow-red-500/50 bg-red-200;
+    @apply rounded-lg border-red-700 border-2;
   }
   .ant-notification-notice-message {
     @apply font-bold select-none;
@@ -80,6 +76,9 @@ const updateScreenWidth = function () {
   }
   .ant-notification-notice-description {
     @apply font-semibold select-none;
+  }
+  .ant-notification-notice-close {
+    @apply hover:text-black text-black hover:-translate-y-1 hover:scale-110 transition ease-in-out delay-150 duration-300
   }
 
 }

@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { useAlertStore } from '../stores/AlertStore';
   const alertStore = useAlertStore()
   const cards = ref([
@@ -9,8 +9,8 @@ import { useAlertStore } from '../stores/AlertStore';
       content: 'During my free time you can find me studying, working out, or either watching or playing sports.'
        + ' I am a huge sports fan and basketball is my favorite.',
       icon: 'fa-solid fa-basketball',
-      iconHexColor: '#c2410c',
-      color: 'orange'
+      iconHexColor: '#b45309',
+      color: 'amber'
     },
     {
       id: 2,
@@ -55,13 +55,18 @@ import { useAlertStore } from '../stores/AlertStore';
     emit('restore')
   }
 
+  const removeAnimation = computed(() => {
+    return cards.value.length <= 2
+  })
+
   const emit = defineEmits(['restore'])
 </script>
 <template>
   <button
     v-if="cards.length !== 4"
     @click="handleforceRerender"
-    class="shadow-lg shadow-cyan-500/50 ml-4 bg-gradient-to-r from-cyan-700 to-teal-500 mb-2 text-white font-semibold dark:bg-gradient-to-r dark:from-gray-200 dark:to-slate-500 dark:text-black rounded-lg p-2"
+    class="hover:-translate-y-1 hover:scale-110 transition ease-in-out delay-150 duration-300 select-none shadow-lg border border-black shadow-cyan-500/50 ml-4 bg-gradient-to-r from-cyan-700 to-teal-500 mb-2 text-white font-semibold dark:bg-gradient-to-r dark:from-gray-200 dark:to-slate-500 dark:text-black rounded-lg p-2"
+    :class="{'hover:animate-none animate-bounce hover:-translate-y-1 hover:scale-110' : removeAnimation}"
     >
     Restore Cards
   </button>
@@ -84,7 +89,7 @@ import { useAlertStore } from '../stores/AlertStore';
         <div class="flex">
           <font-awesome-icon :icon="icon" :color="iconHexColor" size="lg"/>
           <font-awesome-icon
-          class="cursor-pointer ml-auto"
+          class="cursor-pointer ml-auto hover:-translate-y-1 hover:scale-110 transition ease-in-out delay-150 duration-300"
           @click="onHandleClick(id)"
           icon="fa-solid fa-circle-xmark"
           size="lg"
@@ -92,7 +97,7 @@ import { useAlertStore } from '../stores/AlertStore';
         </div>
       </template>
       <div >
-        <p class="text-slate-700 select-none">{{ content }}</p>
+        <p class=" text-slate-700 select-none">{{ content }}</p>
       </div>
     </a-card>
   </div>
@@ -106,7 +111,7 @@ import { useAlertStore } from '../stores/AlertStore';
       class="text-lg font-bold text-center dark:text-black"
     >
       Don't worry, you can restore the cards by either refreshing or pressing the
-      <span class=" shadow-cyan-500/50 bg-gradient-to-r from-cyan-700 to-teal-500 text-white font-semibold dark:bg-gradient-to-r dark:from-gray-200 dark:to-slate-500 dark:border dark:border-black dark:text-black rounded-lg p-2">
+      <span class=" shadow-cyan-500/50 border border-black bg-gradient-to-r from-cyan-700 to-teal-500 text-white font-semibold dark:bg-gradient-to-r dark:from-gray-200 dark:to-slate-500 dark:border dark:border-black dark:text-black rounded-lg p-2">
         Restore Cards
       </span>
       button above 👆🏽
@@ -119,6 +124,7 @@ import { useAlertStore } from '../stores/AlertStore';
 </template>
 <style lang="pcss"  >
 .c-info-card--container {
+  @apply shadow-lg;
   .ant-card {
     @apply mb-2.5 rounded-lg border-cyan-700 border-2 border-solid dark:bg-gray-200;
   }
@@ -137,7 +143,7 @@ import { useAlertStore } from '../stores/AlertStore';
     padding-left: 10px;
     @apply  w-1/2;
   }
-  .c-info-card__title-orange { @apply text-orange-700 }
+  .c-info-card__title-amber { @apply text-amber-700 }
   .c-info-card__title-red { @apply text-red-700 }
   .c-info-card__title-stone { @apply text-stone-700 }
   .c-info-card__title-yellow { @apply text-yellow-700 }
