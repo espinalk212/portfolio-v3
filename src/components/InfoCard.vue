@@ -99,7 +99,7 @@ import { useAlertStore } from '../stores/AlertStore';
           <font-awesome-icon :icon="icon" :color="iconHexColor" size="lg"/>
           <font-awesome-icon
           class="cursor-pointer ml-auto hover:-translate-y-1 hover:scale-110 transition ease-in-out delay-150 duration-300"
-          @click="onHandleClick(id)"
+          @click.stop="onHandleClick(id)"
           icon="fa-solid fa-circle-xmark"
           size="lg"
           />
@@ -112,7 +112,7 @@ import { useAlertStore } from '../stores/AlertStore';
   </div>
   <div
    v-else="!cards.length"
-   class="c-info-card--container mt-20"
+   class="select-none c-info-card--container mt-20"
   >
   <a-empty :description="null"/>
   <a-card hoverable>
