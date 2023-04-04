@@ -11,12 +11,30 @@ const routes = [
   {
     path: '/about',
     name: 'about',
-    component: () => import('../views/AboutView.vue')
+    component: () => import('../views/AboutView.vue'),
+    beforeEnter: (to, from) => {
+      alertStore = useAlertStore()
+      alertStore.triggerNotification({
+        message: 'Sorry this functionality isn\'t available yet',
+        type: 'error',
+        description: 'It\'s coming soon',
+    })
+      return false
+    }
   },
   {
     path: '/projects',
     name: 'projects',
-    component: () => import('../views/ProjectsView.vue')
+    component: () => import('../views/ProjectsView.vue'),
+    beforeEnter: (to, from) => {
+      alertStore = useAlertStore()
+      alertStore.triggerNotification({
+        message: 'Sorry this functionality isn\'t available yet',
+        type: 'error',
+        description: 'It\'s coming soon',
+    })
+      return false
+    }
   },
   {
     path: '/resume',

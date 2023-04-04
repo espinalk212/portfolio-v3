@@ -2,12 +2,14 @@
 import InfoCard from '../components/InfoCard.vue';
 import { ref, onMounted } from 'vue';
 import {useAlertStore } from '@/stores/AlertStore.js'
+import keHeadshot from '@/assets/keHeadshot.jpg'
 
 const alertStore = useAlertStore()
 const componentKey = ref(0)
 const handleRestore = () => {
   componentKey.value += 1;
 }
+const image = keHeadshot
 const handleAlert = function () {
   const randomNumber = Math.floor(Math.random() * 4)
   const randomType = ['error', 'success', 'warning', 'info'][randomNumber]
@@ -31,7 +33,7 @@ onMounted(() => {
 <template>
   <main>
     <div class="flex p-5 items-center justify-center h-fit">
-      <a-image src="/keHeadshot.jpg" :width="200" :height="300" class="object-fill rounded-lg"  />
+      <a-image :src="image" :width="200" :height="300" class="object-fill rounded-lg"  />
     </div>
     <div class="flex flex-col items-center justify-center">
       <h2 class="font-bold text-lg dark:text-white">Kevin Espinal</h2>

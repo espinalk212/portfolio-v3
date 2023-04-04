@@ -24,7 +24,7 @@ import { useAlertStore } from '../stores/AlertStore';
     },
     {
       id: 3,
-      title: 'What I am looking for',
+      title: 'What I\'m looking for',
       content: 'I believe that the best places to work are most often ones where it doesn\'t feel like work, I am looking for'
       + ' an environment where people believe in helping one another achieve the best version of themselves while being passionate'
       + ' about what they do.',
