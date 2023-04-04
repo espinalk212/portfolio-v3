@@ -100,7 +100,7 @@ import { useAlertStore } from '../stores/AlertStore';
    v-else="!cards.length"
    class="c-info-card--container mt-20"
   >
-  <a-card>
+  <a-card hoverable>
     <p
     class="text-lg font-bold text-center dark:text-black"
     >

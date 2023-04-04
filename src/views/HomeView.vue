@@ -37,7 +37,14 @@ onMounted(() => {
 <template>
   <main>
     <div class="flex p-5 items-center justify-center h-fit">
-      <a-image :src="image" :width="200" :height="300" class="object-fill rounded-lg"  />
+      <a-image
+        :src="image"
+        :width="200"
+        :height="300"
+        :preview="false"
+        alt="Image of Kevin"
+        class="object-fill rounded-lg"
+      />
     </div>
     <div class="flex flex-col items-center justify-center">
       <h2 class="font-bold text-lg dark:text-white">Kevin Espinal</h2>
