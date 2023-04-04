@@ -9,6 +9,7 @@ export const useAlertStore = defineStore('Alert', {
   state: () => ({
     notifications: [],
     isConfettiVisible: false,
+    blogUpdates: [],
   }),
   actions: {
     triggerNotification({message, description, type}) {
@@ -28,9 +29,9 @@ export const useAlertStore = defineStore('Alert', {
 
 notification.config({
   maxCount: 4,
-  duration: null,
+  duration: 5,
   placement: 'topLeft',
-  top: '70px',
+  top: '80px',
 })
 const createNotification = ({id, type, message, description}) => {
   notification[type]({

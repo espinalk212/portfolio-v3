@@ -9,7 +9,7 @@ const props = defineProps({
 
 const alertStore = useAlertStore()
 
-const notificationCount = computed(() => alertStore.notifications.length)
+const notificationCount = computed(() => alertStore.blogUpdates.length)
 
 let darkMode
 
