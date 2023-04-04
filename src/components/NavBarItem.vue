@@ -62,7 +62,7 @@ const pageIsNotReady = function (title) {
 const emit = defineEmits(['click'])
 </script>
 <template>
-  <div class="flex justify-between cursor-pointer md:px-20 lg:px-30">
+  <div class="flex justify-between items-center cursor-pointer md:px-20 lg:px-30">
     <div
       v-for="{title, icon, path} in navBarSections"
       :key="title"
@@ -72,19 +72,21 @@ const emit = defineEmits(['click'])
         v-slot="{ isActive }"
         >
           <div
-            class="flex items-center justify-center md:text-2xl lg:text-3xl"
+            class="fa-stack flex items-center justify-center  md:text-2xl lg:text-4xl"
             :class="pageIsNotReady(title) ? 'cursor-not-allowed' : ''"
           >
-          <font-awesome-layers full-width >
-            <font-awesome-icon :icon="icon" :color="darkMode ? '#e5e7eb' : '#0e7490'" />
+          <font-awesome-layers class="w-full justify-self-center" >
+            <font-awesome-icon icon="fa-solid fa-circle" class="fa-stack-2x" :color="darkMode ? '#0e7490' : '#e5e7eb'" />
+            <font-awesome-icon :icon="icon" class="fa-stack-1x" :color="darkMode ? '#e5e7eb' : '#0e7490'" />
             <font-awesome-layers-text
+            class="fa-2x"
               v-if="title === 'Blog' && notificationCount > 0"
               counter
               :value="notificationCount"
-              position="top-left"
+              position="top-right"
             />
           </font-awesome-layers>
-          </div>
+        </div>
           <p  :class="isActive && darkMode ? 'activeDark' : isActive && !darkMode ? 'activeLight' : '',
           pageIsNotReady(title) ? 'cursor-not-allowed' : ''"
           class="font-bold text-sm text-cyan-700 dark:text-gray-200 md:text-2xl lg:text-3xl"
@@ -133,4 +135,7 @@ button:not(.ant-switch-checked).ant-switch:focus {
     box-shadow: none !important;
   }
 }
+
+/* class="flex items-center justify-center md:text-2xl lg:text-3xl" */
 </style>
+
