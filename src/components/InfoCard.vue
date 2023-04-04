@@ -50,13 +50,13 @@ import { useAlertStore } from '../stores/AlertStore';
     if(!cards.value.length) {
       alertStore.setConfettiVisible()
       setTimeout(() => alertStore.isConfettiVisible = false, "4000")
-      alertStore.blogUpdates.push({id: 1, update: 'Showing off notification feature'})
+      alertStore.createBlogUpdate({message: 'Showing off notification feature'})
       setTimeout(() => alertStore.triggerNotification({
         type: 'info',
         message: 'Look at the blog icon ⤴️',
         description: 'In the future when I publish blogs, badges like such will tell you there\'s a new one to read 😁'
       }), "2000")
-      setTimeout(() => alertStore.clearBlogNotifications(), "7000")
+      setTimeout(() => alertStore.clearBlogNotifications(), "10000")
     }
   }
 

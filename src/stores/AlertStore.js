@@ -24,6 +24,15 @@ export const useAlertStore = defineStore('Alert', {
     setConfettiVisible() {
       this.isConfettiVisible = true
     },
+    createBlogUpdate({message}) {
+      const id = uuidv4()
+      const date = (new Date()).toISOString()
+      this.blogUpdates.push({
+        id,
+        message,
+        date
+      })
+    },
     clearBlogNotifications() {
       this.blogUpdates = []
     }
