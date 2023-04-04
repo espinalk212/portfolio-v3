@@ -111,7 +111,7 @@ import { useAlertStore } from '../stores/AlertStore';
       class="text-lg font-bold text-center dark:text-black"
     >
       Don't worry, you can restore the cards by either refreshing or pressing the
-      <span class=" shadow-cyan-500/50 border border-black bg-gradient-to-r from-cyan-700 to-teal-500 text-white font-semibold dark:bg-gradient-to-r dark:from-gray-200 dark:to-slate-500 dark:border dark:border-black dark:text-black rounded-lg p-2">
+      <span class=" shadow-cyan-500/50 border border-black bg-gradient-to-r from-cyan-700 to-teal-500 text-white font-semibold dark:bg-gradient-to-r dark:from-gray-200 dark:to-slate-500 dark:border dark:border-black dark:text-black rounded-lg p-2 m-1">
         Restore Cards
       </span>
       button above 👆🏽
@@ -124,7 +124,6 @@ import { useAlertStore } from '../stores/AlertStore';
 </template>
 <style lang="pcss"  >
 .c-info-card--container {
-  @apply shadow-lg;
   .ant-card {
     @apply mb-2.5 rounded-lg border-cyan-700 border-2 border-solid dark:bg-gray-200;
   }
