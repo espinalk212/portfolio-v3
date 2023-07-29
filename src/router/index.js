@@ -27,6 +27,7 @@ const routes = [
     name: 'projects',
     component: () => import('../views/ProjectsView.vue'),
     beforeEnter: (to, from) => {
+      if(process.env.NODE_ENV === 'development') { return }
       alertStore = useAlertStore()
       alertStore.triggerNotification({
         message: 'Sorry this functionality isn\'t fully available yet',
