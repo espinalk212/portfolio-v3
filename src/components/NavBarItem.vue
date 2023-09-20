@@ -89,7 +89,7 @@ const emit = defineEmits(['click'])
         </div>
           <p  :class="isActive && darkMode ? 'activeDark' : isActive && !darkMode ? 'activeLight' : '',
           pageIsNotReady(title) ? 'cursor-not-allowed' : ''"
-          class="font-bold text-sm text-cyan-700 dark:text-gray-200 md:text-2xl lg:text-3xl"
+          class="flex justify-center font-bold text-sm text-cyan-700 dark:text-gray-200 md:text-2xl lg:text-3xl"
           >
           {{ title }}
         </p>
