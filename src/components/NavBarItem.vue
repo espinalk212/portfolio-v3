@@ -62,20 +62,21 @@ const pageIsNotReady = function (title) {
 const emit = defineEmits(['click'])
 </script>
 <template>
-  <div class="flex justify-between items-center cursor-pointer md:px-20 lg:px-30">
+  <div class="flex items-center cursor-pointer md:px-20 lg:px-30">
     <div
       v-for="{title, icon, path} in navBarSections"
       :key="title"
+      class="w-[17vw]"
       >
       <RouterLink
         :to="path"
         v-slot="{ isActive }"
         >
           <div
-            class="fa-stack flex items-center justify-center  md:text-2xl lg:text-4xl"
+            class="fa-stack flex items-center w-full  md:text-2xl lg:text-4xl"
             :class="pageIsNotReady(title) ? 'cursor-not-allowed' : ''"
           >
-          <font-awesome-layers class="w-full justify-self-center" >
+          <font-awesome-layers class="w-full" >
             <font-awesome-icon icon="fa-solid fa-circle" class="fa-stack-2x" :color="darkMode ? '#0e7490' : '#e5e7eb'" />
             <font-awesome-icon :icon="icon" class="fa-stack-1x" :color="darkMode ? '#e5e7eb' : '#0e7490'" />
             <font-awesome-layers-text

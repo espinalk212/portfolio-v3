@@ -3,8 +3,8 @@ import ProjectCard from '@/components/ProjectCard.vue'
 </script>
 <template>
   <div>
-    <h1 class="text-lg font-bold text-center">In my time learning Software Engineering I have been a part of several projects, the majority of my learning has been through my experience in the role but some of these projects can be found here:</h1>
-    <div>
+    <h1 class="text-lg font-bold text-center dark:text-white">In my time learning Software Engineering I have been a part of several projects, the majority of my learning has been through my experience in the role but some of these projects can be found here:</h1>
+    <div class="grid">
       <ProjectCard
         title="ViewFlix"
         description="A Netflix clone that implements a Rails backend and Reactjs / Redux frontend with movie trailers hosted on AWS"
