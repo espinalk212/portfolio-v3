@@ -48,7 +48,7 @@ const variantMappedToClass = {
 
 const buttonSize = computed(() => `text-${sizeMappedToClass[props.size]}`)
 const buttonVariant = computed(() => variantMappedToClass[props.variant])
-const disabled = computed(() => props.disabled ? 'hover:cursor-not-allowed bg-gradient-to-r from-zinc-300 to-zinc-300 text-zinc-400 border-zinc-300 dark:text-zinc-600 dark:border-none hover:transform-none' : '')
+const disabled = computed(() => props.disabled ? 'hover:cursor-not-allowed bg-gradient-to-r from-zinc-300 to-zinc-400 text-zinc-500 border-zinc-300 dark:text-zinc-600 shadow-lg shadow-zinc-500/50 dark:border-none hover:transform-none dark:bg-gradient-to-r dark:from-zinc-400 dark:to-zinc-500' : '')
 
 </script>
 <template>
