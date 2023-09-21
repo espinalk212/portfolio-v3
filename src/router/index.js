@@ -13,6 +13,7 @@ const routes = [
     name: 'tech',
     component: () => import('../views/TechView.vue'),
     beforeEnter: (to, from) => {
+      if(process.env.NODE_ENV === 'development') { return }
       alertStore = useAlertStore()
       alertStore.triggerNotification({
         message: 'Sorry this functionality isn\'t available yet',
@@ -30,11 +31,11 @@ const routes = [
       if(process.env.NODE_ENV === 'development') { return }
       alertStore = useAlertStore()
       alertStore.triggerNotification({
-        message: 'Sorry this functionality isn\'t fully available yet',
+        message: 'Images as well as new projects coming soon',
         type: 'warning',
-        description: 'I\'m actively working on it 👨🏽‍💻',
+        description: 'I\'m actively working on it 👨🏽‍💻, thank you for your patience',
     })
-      return false
+      return true
     }
   },
   {
@@ -42,10 +43,11 @@ const routes = [
     name: 'resume',
     component: () => import('../views/ResumeView.vue'),
     beforeEnter: (to, from) => {
+      if(process.env.NODE_ENV === 'development') { return }
       alertStore = useAlertStore()
       alertStore.triggerNotification({
         message: 'Sorry this functionality isn\'t available yet',
-        type: 'error',
+        type: 'warning',
         description: 'Stay tuned, it\'s coming soon',
     })
       return false
@@ -56,6 +58,7 @@ const routes = [
     name: 'blog',
     component: () => import('../views/BlogView.vue'),
     beforeEnter: (to, from) => {
+      if(process.env.NODE_ENV === 'development') { return }
       alertStore = useAlertStore()
       alertStore.triggerNotification({
         message: 'Sorry this functionality isn\'t available yet',

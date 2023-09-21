@@ -54,7 +54,7 @@ const onDarkModeToggled = function () {
 }
 
 const pageIsNotReady = function (title) {
-  const prohibitedPages = ['Projects', 'Tech', 'Resume', 'Blog']
+  const prohibitedPages = ['Tech', 'Resume', 'Blog']
   if (prohibitedPages.includes(title)) return true
   return false
 }
