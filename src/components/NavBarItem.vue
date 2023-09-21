@@ -73,10 +73,10 @@ const emit = defineEmits(['click'])
         v-slot="{ isActive }"
         >
           <div
-            class="fa-stack flex items-center w-full  md:text-2xl lg:text-4xl"
+            class="fa-stack flex items-center justify-center w-full  md:text-2xl lg:text-4xl"
             :class="pageIsNotReady(title) ? 'cursor-not-allowed' : ''"
           >
-          <font-awesome-layers class="w-full" >
+          <font-awesome-layers class="flex w-1/2 h-full" >
             <font-awesome-icon icon="fa-solid fa-circle" class="fa-stack-2x" :color="darkMode ? '#0e7490' : '#e5e7eb'" />
             <font-awesome-icon :icon="icon" class="fa-stack-1x" :color="darkMode ? '#e5e7eb' : '#0e7490'" />
             <font-awesome-layers-text
