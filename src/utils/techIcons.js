@@ -3,8 +3,6 @@ export const icons = [
   { name: 'CSS3', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg', experience: 4},
   { name: 'D3js', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/d3js/d3js-original.svg', experience: 3},
   { name: 'Docker', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg', experience: 2},
-  { name: 'ESLint' , src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/eslint/eslint-original.svg', experience: 2},
-  { name: 'Express', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg', experience: 2},
   { name: 'Figma' , src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg', experience: 4 },
   { name: 'Firebase' , src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg', experience: 2 },
   { name: 'Git' , src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg', experience: 4 },

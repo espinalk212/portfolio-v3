@@ -1,6 +1,6 @@
 <template>
   <div >
-    <h1 class="text-lg font-bold text-center dark:text-white text-center mb-10">Throughout my time working in software development here are some of the libraries, frameworks, services and languages I have worked with:</h1>
+    <h1 class="text-lg font-bold text-center dark:text-white mb-10">Throughout my time working in software development here are some of the libraries, frameworks, services and languages I have worked with:</h1>
   </div>
   <div class="flex mb-5">
     <div class="flex ml-auto w-full md:w-3/4 lg:w-1/2">

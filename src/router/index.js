@@ -16,11 +16,11 @@ const routes = [
       if(process.env.NODE_ENV === 'development') { return }
       alertStore = useAlertStore()
       alertStore.triggerNotification({
-        message: 'Sorry this functionality isn\'t available yet',
-        type: 'error',
-        description: 'Stay tuned, it\'s coming soon',
+        message: 'This page isn\'t fully completed yet',
+        type: 'warning',
+        description: 'I\'m actively working on it 👨🏽‍💻, thank you for your patience',
     })
-      return false
+      return true
     }
   },
   {
