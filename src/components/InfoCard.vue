@@ -131,7 +131,7 @@ import { useAlertStore } from '../stores/AlertStore';
   </div>
 
 </template>
-<style lang="pcss"  >
+<style lang="pcss" >
 .c-info-card--container {
   .ant-card {
     @apply mb-2.5 rounded-lg border-cyan-700 border-2 border-solid dark:bg-gray-200;

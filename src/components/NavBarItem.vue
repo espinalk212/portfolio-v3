@@ -1,7 +1,7 @@
 <script setup>
 import { RouterLink } from 'vue-router'
 import { computed, ref, onBeforeMount } from 'vue'
-import { useAlertStore } from '../stores/AlertStore';
+import { useAlertStore } from '@/stores/AlertStore'
 const props = defineProps({
   screenWidth: Number,
   systemSetTheme: Boolean,
@@ -11,13 +11,11 @@ const alertStore = useAlertStore()
 
 const notificationCount = computed(() => alertStore.blogUpdates.length)
 
-let darkMode
+const darkMode = ref(false)
 
 onBeforeMount(() => {
   if(props.systemSetTheme) {
-    darkMode = ref(true)
-  } else {
-    darkMode = ref(false)
+    darkMode.value = true
   }
 })
 
@@ -88,8 +86,8 @@ const emit = defineEmits(['click'])
             />
           </font-awesome-layers>
         </div>
-          <p  :class="isActive && darkMode ? 'activeDark' : isActive && !darkMode ? 'activeLight' : '',
-          pageIsNotReady(title) ? 'cursor-not-allowed' : ''"
+          <p  :class="{'activeLink': isActive,
+          'cursor-not-allowed' : pageIsNotReady(title)}"
           class="flex justify-center font-bold text-sm text-cyan-700 dark:text-gray-200 md:text-2xl lg:text-3xl"
           >
           {{ title }}
@@ -115,13 +113,8 @@ const emit = defineEmits(['click'])
   </div>
 </template>
 <style lang="pcss" >
-.activeDark {
-  border-bottom: 4px solid #14b8a6;
-  border-radius: 2px;
-}
-.activeLight {
-  border-bottom: 4px solid #14b8a6;
-  border-radius: 2px;
+.activeLink {
+  @apply border-b-4 border-solid border-brand-teal rounded
 }
 button.ant-switch {
   background-color: #1890ff;
