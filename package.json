@@ -17,6 +17,7 @@
     "@fortawesome/vue-fontawesome": "^3.0.3",
     "ant-design-vue": "^3.2.16",
     "i": "^0.3.7",
+    "lodash": "^4.17.21",
     "npm": "^9.6.3",
     "pinia": "^2.0.32",
     "uuid": "^9.0.0",
