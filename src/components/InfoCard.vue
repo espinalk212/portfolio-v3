@@ -90,13 +90,8 @@ const emit = defineEmits(['restore'])
   >
     Restore Cards
   </button>
-  <div
-    v-if="cards.length"
-    v-for="{ id, title, content, icon, iconHexColor, color } in cards"
-    :key="id"
-    class="c-info-card--container"
-  >
-    <a-card hoverable>
+  <div v-if="cards.length" class="c-info-card--container">
+    <a-card hoverable v-for="{ id, title, content, icon, iconHexColor, color } in cards" :key="id">
       <template #title>
         <span class="font-bold select-none" :class="`c-info-card__title-${color}`">
           {{ title }}
