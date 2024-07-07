@@ -1,13 +1,13 @@
 <script setup>
 import { onMounted, ref } from 'vue'
-const props = defineProps({
+defineProps({
   message: {
     type: String,
-    required: true,
+    required: true
   },
   description: {
     type: String,
-    default: ""
+    default: ''
   },
   type: {
     type: String,
@@ -20,7 +20,7 @@ const closeAlert = function () {
   setTimeout(() => {
     visible.value = false
     emit('closed')
-  }, "3500")
+  }, '3500')
 }
 onMounted(() => {
   closeAlert()
@@ -30,34 +30,30 @@ const emit = defineEmits(['closed'])
 </script>
 <template>
   <div class="c-element-alert flex w-7/12 h-2/7 mt-10">
-    <a-alert
-    banner
-    show-icon
-    :type="type"
-  >
-    <template #icon>
-      <div v-if="props.type === 'success'">
-        <font-awesome-icon icon="fa-solid fa-circle-check"/>
-      </div>
-      <div v-if="props.type === 'info'">
-        <font-awesome-icon icon="fa-solid fa-circle-info" />
-      </div>
-      <div v-if="props.type === 'warning'">
-        <font-awesome-icon icon="fa-solid fa-triangle-exclamation" />
-      </div>
-      <div v-if="props.type === 'error'">
-        <font-awesome-icon icon="fa-solid fa-circle-exclamation" />
-      </div>
-    </template>
+    <a-alert banner show-icon :type="type">
+      <template #icon>
+        <div v-if="type === 'success'">
+          <font-awesome-icon icon="fa-solid fa-circle-check" />
+        </div>
+        <div v-if="type === 'info'">
+          <font-awesome-icon icon="fa-solid fa-circle-info" />
+        </div>
+        <div v-if="type === 'warning'">
+          <font-awesome-icon icon="fa-solid fa-triangle-exclamation" />
+        </div>
+        <div v-if="type === 'error'">
+          <font-awesome-icon icon="fa-solid fa-circle-exclamation" />
+        </div>
+      </template>
 
-    <template #message>
-      {{ message }}
-    </template>
+      <template #message>
+        {{ message }}
+      </template>
 
-    <template #description>
-      {{ description }}
-    </template>
-  </a-alert>
+      <template #description>
+        {{ description }}
+      </template>
+    </a-alert>
   </div>
 </template>
 <style lang="pcss">
