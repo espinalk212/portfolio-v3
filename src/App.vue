@@ -2,7 +2,7 @@
 import { RouterView } from 'vue-router'
 import ConfettiExplosion from 'vue-confetti-explosion'
 import NavBarItem  from '@/components/NavBarItem.vue';
-import { onBeforeMount, ref } from 'vue'
+import { onBeforeMount, onUnmounted, ref } from 'vue'
 import {useAlertStore } from '@/stores/AlertStore.js'
 
 const screenWidth = ref(640);
@@ -37,6 +37,8 @@ function updateScreenWidth () {
   screenWidth.value = window.innerWidth
   screenHeight.value = window.innerHeight
 }
+
+onUnmounted(() => window.removeEventListener('resize', onScreenResize));
 </script>
 
 <template >
