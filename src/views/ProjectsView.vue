@@ -30,6 +30,3 @@ import ProjectCard from '@/components/ProjectCard.vue'
     </div>
   </div>
 </template>
-
-<style>
-</style>

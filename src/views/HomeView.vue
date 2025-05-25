@@ -3,6 +3,7 @@ import InfoCard from '../components/InfoCard.vue';
 import { ref, onMounted } from 'vue';
 import {useAlertStore } from '@/stores/AlertStore.js'
 import keHeadshot from '@/assets/keHeadshot.jpg'
+import FreshButton from '@/components/elements/FreshButton.vue'
 
 const alertStore = useAlertStore();
 const componentKey = ref(0);
@@ -35,7 +36,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <main>
+  <section>
     <div class="flex p-5 items-center justify-center h-fit">
       <a-image
         :src="image"
@@ -50,12 +51,7 @@ onMounted(() => {
       <h2 class="select-none font-bold text-lg dark:text-white">Kevin Espinal</h2>
       <p class="select-none text-sm dark:text-white">Fullstack Software Engineer</p>
     </div>
-    <button
-      @click="handleAlert"
-      class="hover:-translate-y-1 hover:scale-110 transition ease-in-out delay-150 duration-300 select-none border border-black shadow-lg shadow-cyan-500/50 bg-gradient-to-r from-cyan-700 to-teal-500 mb-2 text-white font-semibold dark:bg-gradient-to-r dark:from-gray-200 dark:to-slate-500 dark:text-black rounded-lg p-2"
-      >
-      Test Random Alerts
-    </button>
+    <FreshButton text="Test Random Alerts" @clicked="handleAlert" />
     <InfoCard @restore="handleRestore" :key="componentKey" />
-  </main>
+  </section>
 </template>

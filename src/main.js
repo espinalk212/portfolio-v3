@@ -59,7 +59,6 @@ library.add(
 
 import "@fontsource/roboto"
 import './assets/main.css'
-import 'ant-design-vue/dist/antd.css'
 
 const app = createApp(App)
 app.use(createPinia())

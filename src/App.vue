@@ -43,7 +43,7 @@ function updateScreenWidth () {
   <header>
     <NavBarItem @click="onDarkModeToggled" :systemSetTheme="systemSetTheme" :screenWidth="screenWidth" />
   </header>
-  <div class="flex w-2/3 h-full ml-auto">
+  <div class="flex w-2/3 h-full ml-auto pb-24">
     <ConfettiExplosion v-if="alertStore.isConfettiVisible" :stageWidth="screenWidth" :stageHeight="screenHeight"/>
   </div>
   <RouterView  />
@@ -80,6 +80,5 @@ function updateScreenWidth () {
   .ant-notification-notice-close {
     @apply hover:text-black text-black hover:-translate-y-1 hover:scale-110 transition ease-in-out delay-150 duration-300
   }
-
 }
 </style>

@@ -31,11 +31,13 @@ function onSort() {
       <FreshButton class="w-1/2" :text="btnText" :disabled="isSortedByExp" @clicked="onSort" />
     </div>
   </div>
-  <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2">
+
+  <ul class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2">
     <li v-for="(icon, i) in sortedIcons" :key="icon" class="list-none">
       <IconComponent :key="`${icon.name}__${i}`" :name="icon.name" :src="icon.src" />
     </li>
-  </div>
+  </ul>
+
   <p class="font-bold dark:text-white lg:text-2xl text-center mb-10">
     Check my <a>resume</a> for even more info
   </p>

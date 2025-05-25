@@ -3,7 +3,7 @@ import { computed, ref } from 'vue'
 import { useAlertStore } from '@/stores/AlertStore'
 
 const alertStore = useAlertStore();
-const cards = [
+const cards = ref([
   {
     id: 1,
     title: 'My Hobbies',
@@ -47,7 +47,7 @@ const cards = [
     iconHexColor: '#ca8a04',
     color: 'yellow'
   }
-];
+]);
 
 const emit = defineEmits(['restore']);
 
