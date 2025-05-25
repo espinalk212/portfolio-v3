@@ -1,3 +1,21 @@
+<script setup>
+import { icons } from '@/utils/techIcons.js'
+import IconComponent from '@/components/IconComponent.vue'
+import FreshButton from '@/components/elements/FreshButton.vue'
+import { sortBy } from 'lodash'
+import { computed, onMounted, ref } from 'vue'
+
+const sortedIcons = ref([]);
+const isSortedByExp = ref(false);
+onMounted(() => (sortedIcons.value = icons));
+
+const btnText = computed(() => (!isSortedByExp.value ? 'Sort' : 'Already Sorted'));
+
+function onSort() {
+  sortedIcons.value = sortBy(icons, ['experience']).reverse()
+  isSortedByExp.value = true
+}
+</script>
 <template>
   <div>
     <h1 class="text-lg font-bold text-center dark:text-white mb-10">
@@ -22,21 +40,3 @@
     Check my <a>resume</a> for even more info
   </p>
 </template>
-<script setup>
-import { icons } from '@/utils/techIcons.js'
-import IconComponent from '@/components/IconComponent.vue'
-import FreshButton from '@/components/elements/FreshButton.vue'
-import { sortBy } from 'lodash'
-import { computed, onMounted, ref } from 'vue'
-
-const sortedIcons = ref([])
-const isSortedByExp = ref(false)
-onMounted(() => (sortedIcons.value = icons))
-
-const btnText = computed(() => (!isSortedByExp.value ? 'Sort' : 'Already Sorted'))
-
-function onSort() {
-  sortedIcons.value = sortBy(icons, ['experience']).reverse()
-  isSortedByExp.value = true
-}
-</script>

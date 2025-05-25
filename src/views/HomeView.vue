@@ -4,13 +4,13 @@ import { ref, onMounted } from 'vue';
 import {useAlertStore } from '@/stores/AlertStore.js'
 import keHeadshot from '@/assets/keHeadshot.jpg'
 
-const alertStore = useAlertStore()
-const componentKey = ref(0)
-const handleRestore = () => {
+const alertStore = useAlertStore();
+const componentKey = ref(0);
+function handleRestore () {
   componentKey.value += 1;
 }
 const image = keHeadshot
-const handleAlert = function () {
+function handleAlert() {
   const randomNumber = Math.floor(Math.random() * 4)
   const randomType = ['error', 'success', 'warning', 'info'][randomNumber]
 
@@ -18,9 +18,9 @@ const handleAlert = function () {
     message: `You triggered ${useAppropriateGrammar(randomType)} ${randomType} alert`,
     description: 'Isn\'t it nice?',
     type: randomType
-  })
+  });
 }
-const useAppropriateGrammar = function (word) {
+function useAppropriateGrammar (word) {
   if (word[0] === 'e' || word[0] === 'i') return 'an'
   return 'a'
 }
@@ -30,7 +30,7 @@ onMounted(() => {
     description: 'Try dismissing all the cards when you are done reading them',
     type: 'info'
   })
-})
+});
 
 </script>
 

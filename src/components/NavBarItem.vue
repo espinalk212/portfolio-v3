@@ -5,19 +5,22 @@ import { useAlertStore } from '@/stores/AlertStore'
 const props = defineProps({
   screenWidth: Number,
   systemSetTheme: Boolean,
-})
+});
 
-const alertStore = useAlertStore()
 
-const notificationCount = computed(() => alertStore.blogUpdates.length)
+const emit = defineEmits(['click']);
 
-const darkMode = ref(false)
+const alertStore = useAlertStore();
+
+const notificationCount = computed(() => alertStore.blogUpdates.length);
+
+const darkMode = ref(false);
 
 onBeforeMount(() => {
   if(props.systemSetTheme) {
     darkMode.value = true
   }
-})
+});
 
 const navBarSections = [
   {
@@ -47,17 +50,14 @@ const navBarSections = [
   },
 ]
 
-const onDarkModeToggled = function () {
+function onDarkModeToggled () {
   emit('click', darkMode.value)
 }
 
-const pageIsNotReady = function (title) {
+function pageIsNotReady (title) {
   const prohibitedPages = ['Tech', 'Resume', 'Blog']
-  if (prohibitedPages.includes(title)) return true
-  return false
+  return prohibitedPages.includes(title)
 }
-
-const emit = defineEmits(['click'])
 </script>
 <template>
   <div class="flex items-center cursor-pointer md:px-20 lg:px-30">

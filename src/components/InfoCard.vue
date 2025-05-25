@@ -1,8 +1,9 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { computed, ref } from 'vue'
 import { useAlertStore } from '@/stores/AlertStore'
-const alertStore = useAlertStore()
-const cards = ref([
+
+const alertStore = useAlertStore();
+const cards = [
   {
     id: 1,
     title: 'My Hobbies',
@@ -46,11 +47,12 @@ const cards = ref([
     iconHexColor: '#ca8a04',
     color: 'yellow'
   }
-])
+];
 
-const onHandleClick = function (id) {
-  const activeCards = cards.value.filter((card) => card.id !== id)
-  cards.value = activeCards
+const emit = defineEmits(['restore']);
+
+function onHandleClick (id) {
+  cards.value = cards.value.filter((card) => card.id !== id)
   if (!cards.value.length) {
     alertStore.setConfettiVisible()
     setTimeout(() => (alertStore.isConfettiVisible = false), '4000')
@@ -69,20 +71,18 @@ const onHandleClick = function (id) {
   }
 }
 
-const handleforceRerender = () => {
+function handleForceRerender () {
   emit('restore')
 }
 
 const removeAnimation = computed(() => {
   return cards.value.length <= 2
 })
-
-const emit = defineEmits(['restore'])
 </script>
 <template>
   <button
     v-if="cards.length !== 4"
-    @click="handleforceRerender"
+    @click="handleForceRerender"
     class="hover:-translate-y-1 hover:scale-110 transition ease-in-out delay-150 duration-300 select-none shadow-lg border border-black shadow-cyan-500/50 ml-4 bg-gradient-to-r from-cyan-700 to-teal-500 mb-2 text-white font-semibold dark:bg-gradient-to-r dark:from-gray-200 dark:to-slate-500 dark:text-black rounded-lg p-2"
     :class="{
       'hover:animate-none animate-bounce hover:-translate-y-1 hover:scale-110': removeAnimation
@@ -144,7 +144,7 @@ const emit = defineEmits(['restore'])
   }
   .ant-card-extra {
     float: none;
-    margin-left: none;
+    margin-left: 0;
     padding-left: 10px;
     @apply  w-1/2;
   }

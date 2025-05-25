@@ -1,6 +1,5 @@
 <script setup>
-
-const props = defineProps({
+defineProps({
   isLoading: {
     type: Boolean,
     default: false,
@@ -12,13 +11,13 @@ const props = defineProps({
   },
   loadingMessage: {
     type: String,
-    default: 'Loading...'
+    default: 'FreshLoading...'
   },
 })
 </script>
 
 <template>
   <div class="w-full h-full">
-    <a-spin :spinning="isLoading" :size="props.size" :tip="props.loadingMessage"/>
+    <a-spin :spinning="isLoading" :size="size" :tip="loadingMessage"/>
   </div>
 </template>

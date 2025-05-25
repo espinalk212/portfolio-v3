@@ -14,19 +14,20 @@ defineProps({
     required: true,
     validator: (value) => ['success', 'error', 'warning', 'info'].includes(value)
   }
-})
-const visible = ref(false)
-const closeAlert = function () {
+});
+
+const emit = defineEmits(['closed']);
+
+const visible = ref(false);
+function closeAlert () {
   setTimeout(() => {
     visible.value = false
     emit('closed')
   }, '3500')
 }
 onMounted(() => {
-  closeAlert()
-})
-
-const emit = defineEmits(['closed'])
+  closeAlert();
+});
 </script>
 <template>
   <div class="c-element-alert flex w-7/12 h-2/7 mt-10">

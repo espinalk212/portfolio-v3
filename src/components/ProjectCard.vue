@@ -18,7 +18,7 @@ const props = defineProps({
     type: String,
     required: true
   }
-})
+});
 
 function onClickedSource() {
   window.open(`${props.source}`, '_blank')
@@ -37,8 +37,7 @@ function onClickedSite() {
     <span class="text-sm text-center max-w-[600px] dark:text-white">{{ description }}</span>
     <div class="flex">
       <FreshButton text="Link to source" @clicked="onClickedSource" />
-      <FreshButton text="Link to site" :disabled="!props.site" @clicked="onClickedSite" />
+      <FreshButton text="Link to site" :disabled="!site" @clicked="onClickedSite" />
     </div>
   </div>
 </template>
-<style lang="pcss"></style>

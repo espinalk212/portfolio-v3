@@ -29,7 +29,11 @@ const props = defineProps({
 
 const emit = defineEmits(['clicked'])
 
-function onButtonClicked() {
+function onButtonClicked(e) {
+  if (props.disabled) {
+    e.preventDefault()
+    return
+  }
   emit('clicked')
 }
 
@@ -48,7 +52,7 @@ const variantMappedToClass = {
 
 const buttonSize = computed(() => `text-${sizeMappedToClass[props.size]}`)
 const buttonVariant = computed(() => variantMappedToClass[props.variant])
-const disabled = computed(() =>
+const disabledClass = computed(() =>
   props.disabled
     ? 'hover:cursor-not-allowed bg-gradient-to-r from-zinc-300 to-zinc-400 text-zinc-500 border-zinc-300 dark:text-zinc-600 shadow-lg shadow-zinc-500/50 dark:border-none hover:transform-none dark:bg-gradient-to-r dark:from-zinc-400 dark:to-zinc-500'
     : ''
@@ -56,11 +60,10 @@ const disabled = computed(() =>
 </script>
 <template>
   <button
-    :class="[disabled, buttonSize, buttonVariant]"
+    :class="[disabledClass, buttonSize, buttonVariant]"
     :disabled="disabled"
     @click="onButtonClicked"
   >
     {{ text }}
   </button>
 </template>
-<style lang="pcss"></style>

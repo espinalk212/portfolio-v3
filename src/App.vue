@@ -5,10 +5,10 @@ import NavBarItem  from '@/components/NavBarItem.vue';
 import { onBeforeMount, ref } from 'vue'
 import {useAlertStore } from '@/stores/AlertStore.js'
 
-const screenWidth = ref(640)
-const screenHeight = ref(0)
-const systemSetTheme = ref(false)
-const alertStore = useAlertStore()
+const screenWidth = ref(640);
+const screenHeight = ref(0);
+const systemSetTheme = ref(false);
+const alertStore = useAlertStore();
 
 onBeforeMount(() => {
   updateScreenWidth();
@@ -20,20 +20,20 @@ onBeforeMount(() => {
   }
 })
 
-const onDarkModeToggled = (darkMode) => {
+function onDarkModeToggled (darkMode) {
   const app = document.body
   app.classList[
       darkMode === true ? 'add' : 'remove'
     ]('dark');
 }
 
-const onScreenResize = function () {
+function onScreenResize () {
   window.addEventListener('resize', () => {
-    updateScreenWidth()
+    updateScreenWidth();
   })
 }
 
-const updateScreenWidth = function () {
+function updateScreenWidth () {
   screenWidth.value = window.innerWidth
   screenHeight.value = window.innerHeight
 }
